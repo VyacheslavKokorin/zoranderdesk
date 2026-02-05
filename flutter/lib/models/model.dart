@@ -1632,7 +1632,7 @@ class FfiModel with ChangeNotifier {
     }
 
     if (updateData.isEmpty) {
-      _pi.platformAdditions.remove(kPlatformAdditionsRustDeskVirtualDisplays);
+      _pi.platformAdditions.remove(kPlatformAdditionsZoranderDeskVirtualDisplays);
       _pi.platformAdditions.remove(kPlatformAdditionsAmyuniVirtualDisplays);
     } else {
       try {
@@ -1641,9 +1641,9 @@ class FfiModel with ChangeNotifier {
           _pi.platformAdditions[key] = updateJson[key];
         }
         if (!updateJson
-            .containsKey(kPlatformAdditionsRustDeskVirtualDisplays)) {
+            .containsKey(kPlatformAdditionsZoranderDeskVirtualDisplays)) {
           _pi.platformAdditions
-              .remove(kPlatformAdditionsRustDeskVirtualDisplays);
+              .remove(kPlatformAdditionsZoranderDeskVirtualDisplays);
         }
         if (!updateJson.containsKey(kPlatformAdditionsAmyuniVirtualDisplays)) {
           _pi.platformAdditions.remove(kPlatformAdditionsAmyuniVirtualDisplays);
@@ -3985,8 +3985,8 @@ class PeerInfo with ChangeNotifier {
   bool get isInstalled =>
       platform != kPeerPlatformWindows ||
       platformAdditions[kPlatformAdditionsIsInstalled] == true;
-  List<int> get RustDeskVirtualDisplays => List<int>.from(
-      platformAdditions[kPlatformAdditionsRustDeskVirtualDisplays] ?? []);
+  List<int> get ZoranderDeskVirtualDisplays => List<int>.from(
+      platformAdditions[kPlatformAdditionsZoranderDeskVirtualDisplays] ?? []);
   int get amyuniVirtualDisplayCount =>
       platformAdditions[kPlatformAdditionsAmyuniVirtualDisplays] ?? 0;
 
@@ -3996,7 +3996,7 @@ class PeerInfo with ChangeNotifier {
 
   bool get cursorEmbedded => tryGetDisplay()?.cursorEmbedded ?? false;
 
-  bool get isRustDeskIdd =>
+  bool get isZoranderDeskIdd =>
       platformAdditions[kPlatformAdditionsIddImpl] == 'rustdesk_idd';
   bool get isAmyuniIdd =>
       platformAdditions[kPlatformAdditionsIddImpl] == 'amyuni_idd';
